@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Capa_Enitdad.Product>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+@section styles{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+
+}
+
+<h2>List of products</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table" id="tabledemo">
+    <thead>
+        <tr>
+            <th>
+                @Html.LabelForModel("Product Name")
+            </th>
+            <th>
+                @Html.LabelForModel("Product Price")
+            </th>
+            <th>
+                @Html.LabelForModel("Category Id")
+            </th>
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    <th>@Html.LabelForModel("Action")</th>
+                }
+            }
+
+        </tr>
+    <thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.categoryId)
+                </td>
+
+               @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.productId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.productId })
+                        </td>
+                    }
+                }
+            </tr>
+         }
+    </tbody>
+</table>
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $('.table').DataTable({
+            "paging": true,
+            "ordering": true,
+            "info": true,
+
+            "language": {
+                "lengthMenu": "showing  _MENU_ records",
+                "zeroRecords": "Not found - Sorry",
+                "info": "Showing page _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de _MAX_  total records)",
+                "search": "Search",
+                "next": "After",
+                "previous": "Previous",
+
+            }
+        });
+    </script>
+}

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Capa_Enitdad.Categories>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section styles{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+
+}
+
+<h2>List of Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="tabledemo">
+    <thead>
+        <tr>
+            <th>
+                @Html.LabelForModel("Category Id")
+            </th>
+            <th>
+                @Html.LabelForModel("Category Name")
+            </th>
+            <th>
+                @Html.LabelForModel("Category Description")
+            </th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th>@Html.LabelForModel("Action")</th>
+            }
+
+        </tr>
+    <thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.categoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.categoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.categoryDescription)
+                </td>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.categoryId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.categoryId })
+                        </td>
+                    }
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $('.table').DataTable({
+            "paging": true,
+            "ordering": true,
+            "info": true,
+
+            "language": {
+                "lengthMenu": "showing  _MENU_ records",
+                "zeroRecords": "Not found - Sorry",
+                "info": "Showing page _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de _MAX_  total records)",
+                "search": "Search",
+                "next": "After",
+                "previous": "Previous",
+
+            }
+        });
+    </script>
+}

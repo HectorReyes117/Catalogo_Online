@@ -1,0 +1,6 @@
+C:\Users\Hector\source\repos\Catalogo Online\Capa_Enitdad\bin\Debug\Capa_Enitdad.dll
+C:\Users\Hector\source\repos\Catalogo Online\Capa_Enitdad\bin\Debug\Capa_Enitdad.pdb
+C:\Users\Hector\source\repos\Catalogo Online\Capa_Enitdad\obj\Debug\Capa_Entidad.csproj.AssemblyReference.cache
+C:\Users\Hector\source\repos\Catalogo Online\Capa_Enitdad\obj\Debug\Capa_Entidad.csproj.CoreCompileInputs.cache
+C:\Users\Hector\source\repos\Catalogo Online\Capa_Enitdad\obj\Debug\Capa_Enitdad.dll
+C:\Users\Hector\source\repos\Catalogo Online\Capa_Enitdad\obj\Debug\Capa_Enitdad.pdb
