@@ -10,7 +10,7 @@ namespace Capa_Datos
 {
     public class Connection
     {
-        private SqlConnection connec = new SqlConnection("Server=DESKTOP-R1E8E6O\\SQLEXPRESS; Database=CalogoOnline; Integrated Security=true;");
+        private SqlConnection connec = new SqlConnection("Server=nombreDelServidor; Database=CalogoOnline; Integrated Security=true;");
     
         public SqlConnection OpenConnection()
         {
